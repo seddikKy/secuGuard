@@ -1,0 +1,23 @@
+{% extends 'secu_guard/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+            <h1 class="w3-wide">Mettre à jour un TAG</h1>
+            <div class="w3-half w3-container" >
+                <form class="w3-container" action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <br>
+                  
+                <button class="w3-btn" type="submit">Mettre à jour</button>
+              
+            </form>
+            <br>
+        </div>
+    {% else %}
+        <h1>Désolé! vous devez etre connceter afin de pourvoir voir ce contenu</h1>
+        <a href="{% url 'login' %}">Se connecter ici</a>
+    {% endif %} 
+{% endblock %}

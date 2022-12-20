@@ -1,0 +1,32 @@
+{% extends 'secu_guard/base.html' %}
+
+{% block content %}
+          <div class="w3-card-12 w3-margin" style="width:50%">
+            <header class="w3-container w3-black">
+              <h2>{{ employee }}</h2>
+              </header>
+            <div class="w3-container">
+             
+              <p> 
+                <ul>
+                    <li>Nom de l'agent : {{ employee.name }}</li>
+                    <li>Site : {{ employee.id_site }}</li>
+                    <li>Adresse : {{ employee.address }}</li>
+                    <li>Adresse e-mail : {{ employee.email}}</li>
+                    <li>N° tel : {{ employee.phone }}</li>
+                </ul>
+
+                <br>
+                {% if employee.employee_image %}
+                  <img src="{{ employee.employee_image.url }}" width=200>
+                {% endif %}
+                <br><br>
+
+
+            </p>
+            </div>
+          </div>
+         
+          
+{% endblock %}
+   

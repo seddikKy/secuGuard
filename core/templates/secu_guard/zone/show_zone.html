@@ -1,0 +1,29 @@
+{% extends 'secu_guard/base.html' %}
+
+{% block content %}
+          <div class="w3-card-12 w3-margin" style="width:50%">
+            <header class="w3-container w3-black">
+              <h2>{{ zone }}</h2>
+              </header>
+            <div class="w3-container">
+             
+              <p> 
+                <ul>
+                    <li>Nom de la zone : {{ zone.name }}</li>
+                    <li>Site : {{ zone.id_site }}</li>
+                </ul>
+
+                <br>
+                {% if zone.zone_image %}
+                  <img src="{{ zone.zone_image.url }}" width=200>
+                {% endif %}
+                <br><br>
+
+
+            </p>
+            </div>
+          </div>
+         
+          
+{% endblock %}
+   

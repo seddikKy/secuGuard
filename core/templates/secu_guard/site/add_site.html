@@ -1,0 +1,40 @@
+{% extends 'secu_guard/base.html' %} 
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="w3-container">
+    
+    <h2 class="w3-wide">Ajouter un site</h2>
+    
+    <div class="w3-container w3-half">
+    
+            {% if submitted %}
+            
+                
+            {% else %} 
+            
+        <br/><br/> 
+                
+                    <form class="w3-container" action="" method=POST enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <br>
+                    
+                        <button class="w3-btn" type="submit">Ajouter</button>
+                    
+                    </form>
+                    <br>
+                </div>
+            
+        
+            {% endif %} 
+    </div>
+  
+{% else %}
+    <h1 class="w3-wide">Désolé! vous devez etre connceter afin de pourvoir voir ce contenu</h1>
+    <a href="{% url 'login' %}">Se connecter ici</a>
+{% endif %} 
+{% endblock %}
+   

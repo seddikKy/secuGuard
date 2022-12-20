@@ -1,0 +1,95 @@
+{% extends 'secu_guard/base.html' %}
+
+{% block content %}
+
+<center>    
+        {% comment %} <h1>Liste des tag_headers</h1>
+        <br/>  {% endcomment %}
+
+
+        <div class="w3-container">
+          <h1 class="w3-wide">Liste des TAGs</h1>
+          <br>
+          {% comment %} <p>Use any of the w3-<em>color</em> classes to display a colored row:</p> {% endcomment %}
+        
+          <table class="w3-table-all">
+            <thead>
+              <tr class="w3-black">
+                <th>Nom de TAG</th>
+                <th>Zone</th>
+              
+              </tr>
+            </thead>
+            {% for tag_header in tag_headers %}
+
+            <tr>
+                <td>
+                    <a href="{% url 'show_tag_header'  tag_header.id %}">{{tag_header}}</a>
+                </td> 
+        
+              <td>
+                  <a>{{tag_header.id_zone}}</a>
+                  {% if user.is_authenticated %}
+                      <span style="float:right;"><a  href="{% url 'delete_tag_header' tag_header.id %}"><i class="fa fa-trash" style="font-size:24px w3-red -w3padding-small;color:red"></i></a></span>
+                      <span style="float:right;"><a  href="{% url 'update_tag_header' tag_header.id %}"><i class="fa fa-edit" style="font-size:24px w3-red -w3padding-small"></i></a></span>  
+                  {% endif %}
+              </td> 
+          </tr>
+                
+    
+            {% endfor %}
+          </table>
+          <br>
+
+    <div class="w3-center">
+        <ul class="w3-pagination ">
+            
+            {% if tag_headers.has_previous %}
+            
+                <li>
+                    <a href="?page={{tag_headers.previous_page_number}}">&laquo;</a>
+                </li>
+            
+            
+            {% endif%}
+                
+            {% for i in nums %}
+            <li>
+                <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+            </li>
+            {% endfor %}
+            
+            {% if tag_headers.has_next %}
+            <li>
+                <a href="?page={{ tag_headers.paginator.num_pages }}">&raquo</a>
+            </li>
+            {% endif%}
+            <br><br>
+        </ul>
+    </div>    
+        </div>
+        
+
+        {% comment %} <div class="w3-container w3-center">
+        <table class="w3-table w3-striped w3-bordered">
+        {% for tag_header in tag_headers %}
+
+        <tr>
+            <td>
+          
+                <a href="{% url 'show_tag_header'  tag_header.id %}">{{tag_header}}</a>
+         
+            </td> 
+            {% if user.is_authenticated %}
+                <td> 
+                    <span style="float:right;"><a  href="{% url 'delete_tag_header' tag_header.id %}"><i class="fa fa-trash" style="font-size:24px w3-red -w3padding-small;color:red"></i></a></span>
+                    <span style="float:right;"><a  href="{% url 'update_tag_header' tag_header.id %}"><i class="fa fa-edit" style="font-size:24px w3-red -w3padding-small"></i></a></span> 
+                </td>  
+            {% endif %}
+        </tr>
+
+        {% endfor %}
+    </table> {% endcomment %}
+        
+</center>
+    {% endblock %}

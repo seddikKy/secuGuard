@@ -1,0 +1,67 @@
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+    <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+  </header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<br>
+<br>
+<br>
+<br>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+      <h3 class="w3-wide"><b>LOGO</b></h3>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+      {% comment %} <a href="#" class="w3-bar-item w3-button">Shirts</a>
+      <a href="#" class="w3-bar-item w3-button">Dresses</a> {% endcomment %}
+      <a onclick="myEntrFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Entreprise <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="entrepriseId" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{% url 'add_entreprise' %}" class="w3-bar-item w3-button w3-light-grey">Ajouter</a> <!--<i class="fa fa-caret-right w3-margin-right"></i>-->
+        <a href="{% url 'list_entreprises' %}" class="w3-bar-item w3-button ">Liste des entreprises</a>
+      </div>
+      <a onclick="mySiteFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Site <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="siteId" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{% url 'add_site' %}" class="w3-bar-item w3-button w3-light-grey">Ajouter</a> <!--<i class="fa fa-caret-right w3-margin-right"></i>-->
+        <a href="{% url 'list_sites' %}" class="w3-bar-item w3-button">Liste des sites</a>
+      </div>
+      <a onclick="myZoneFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Zone <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="zoneId" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{% url 'add_zone' %}" class="w3-bar-item w3-button w3-light-grey">Ajouter</a> <!--<i class="fa fa-caret-right w3-margin-right"></i>-->
+        <a href="{% url 'list_zones' %}" class="w3-bar-item w3-button">Liste des zones</a>
+      </div>
+      <a onclick="myEmplFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Employée <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="employeeId" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{% url 'add_employee' %}" class="w3-bar-item w3-button w3-light-grey">Ajouter</a> <!--<i class="fa fa-caret-right w3-margin-right"></i>-->
+        <a href="{% url 'list_employees' %}" class="w3-bar-item w3-button">Liste des agents</a>
+      </div>
+
+      <a onclick="myTagHeaderFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        TAG <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="tagHeaderId" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{% url 'add_tag_header' %}" class="w3-bar-item w3-button w3-light-grey">Ajouter</a> <!--<i class="fa fa-caret-right w3-margin-right"></i>-->
+        <a href="{% url 'list_tag_headers' %}" class="w3-bar-item w3-button">Liste des TAGs</a>
+      </div>
+
+    </div>
+  </div>
+    {% comment %} <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+    <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a> {% endcomment %}
+  </nav>
+  
+  
